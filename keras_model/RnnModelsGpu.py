@@ -1,10 +1,11 @@
 from keras import Sequential
-from keras.layers import Bidirectional, CuDNNGRU, Dropout, Dense, CuDNNLSTM
+from keras.layers import Bidirectional, CuDNNGRU, Dropout, Dense, CuDNNLSTM, Activation
 from keras.utils import to_categorical
 from keras_preprocessing.sequence import pad_sequences
 import numpy as np
 import nltk as nk
 from keras import backend as K
+import tensorflow as tf
 
 K.tensorflow_backend._get_available_gpus()
 from keras.utils import multi_gpu_model
@@ -25,63 +26,66 @@ class RnnModelsGpu:
 
     def get_bigru_model(self):
         model_dnn = Sequential()
-        model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=True,activation=self.activation),
+        model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=True),
                                     input_shape=self.input_shape))
         model_dnn.add(Dropout(self.dropout))
 
         for i in range(int(self.layers - 2)):
-            model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=True,activation=self.activation)))
+            model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=True)))
             model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=False,activation=self.activation)))
+        model_dnn.add(Bidirectional(CuDNNGRU(self.nodes, return_sequences=False)))
         model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Dense(self.classes, activation='sigmoid'))
+        model_dnn.add(Dense(self.classes))
+        model_dnn.add(Activation(tf.nn.softmax))
+        print(model_dnn.summary())
         model_gpu = multi_gpu_model(model_dnn, gpus=self.gpus)
         model_gpu.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
         return model_gpu
 
     def get_bilstm_model(self):
         model_dnn = Sequential()
-        model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=True,activation=self.activation),
+        model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=True),
                                     input_shape=self.input_shape))
         model_dnn.add(Dropout(self.dropout))
         for i in range(int(self.layers - 2)):
-            model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=True,activation=self.activation)))
+            model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=True)))
             model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=False,activation=self.activation)))
+        model_dnn.add(Bidirectional(CuDNNLSTM(self.nodes, return_sequences=False)))
         model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Dense(self.classes, activation='sigmoid'))
+        model_dnn.add(Dense(self.classes))
+        model_dnn.add(Activation(tf.nn.softmax))
         model_gpu = multi_gpu_model(model_dnn, gpus=self.gpus)
         model_gpu.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
         return model_gpu
 
     def get_gru_model(self):
         model_dnn = Sequential()
-        model_dnn.add(CuDNNGRU(self.nodes, return_sequences=True, input_shape=self.input_shape,
-                                    activation=self.activation))
+        model_dnn.add(CuDNNGRU(self.nodes, return_sequences=True, input_shape=self.input_shape))
         model_dnn.add(Dropout(self.dropout))
 
         for i in range(int(self.layers - 2)):
-            model_dnn.add(CuDNNGRU(self.nodes, return_sequences=True,activation=self.activation))
+            model_dnn.add(CuDNNGRU(self.nodes, return_sequences=True))
             model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(CuDNNGRU(self.nodes, return_sequences=False,activation=self.activation))
+        model_dnn.add(CuDNNGRU(self.nodes, return_sequences=False))
         model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Dense(self.classes, activation='sigmoid'))
+        model_dnn.add(Dense(self.classes))
+        model_dnn.add(Activation(tf.nn.softmax))
         model_gpu = multi_gpu_model(model_dnn, gpus=self.gpus)
         model_gpu.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
         return model_gpu
 
     def get_lstm_model(self):
         model_dnn = Sequential()
-        model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=True, input_shape=self.input_shape,
-                                activation=self.activation))
+        model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=True, input_shape=self.input_shape))
         model_dnn.add(Dropout(self.dropout))
 
         for i in range(int(self.layers - 2)):
-            model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=True,activation=self.activation))
+            model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=True))
             model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=False,activation=self.activation))
+        model_dnn.add(CuDNNLSTM(self.nodes, return_sequences=False))
         model_dnn.add(Dropout(self.dropout))
-        model_dnn.add(Dense(self.classes, activation='sigmoid'))
+        model_dnn.add(Dense(self.classes))
+        model_dnn.add(Activation(tf.nn.softmax))
         model_gpu = multi_gpu_model(model_dnn, gpus=self.gpus)
         model_gpu.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
         return model_gpu

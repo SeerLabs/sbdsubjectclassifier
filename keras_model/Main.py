@@ -33,6 +33,7 @@ class Model:
         self.batch_size = batch_size
         self.epochs = epochs
         self.gpus = gpus
+        self.main()
 
     def number(self, word):
         try:
@@ -73,6 +74,7 @@ class Model:
             embedding = np.array([float(val) for val in splitLine[1:]], dtype=np.float32)
             WE_model[word] = embedding
         return WE_model
+
 
     def main(self):
         abstracts_file = pd.read_csv(self.abstracts_path, index_col=['abstract', 'labels'])
