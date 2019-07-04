@@ -14,8 +14,6 @@ class IDFScoreCalculator:
 
     def __init__(self,data_path):
         self.data_path = data_path
-        self.main()
-
 
     def number(self,word):
         try:
@@ -35,7 +33,8 @@ class IDFScoreCalculator:
 
 
     def main(self):
-        all_abstracts = pd.read_csv(self.data_path)
+        data = pd.read_csv(self.data_path,index_col=['abstract', 'labels'])
+        all_abstracts = data['abstract']
         file_count = len(all_abstracts)
         trivial_words = stopwords.words('english') + list(string.printable)
         lemmatizer = WordNetLemmatizer()
@@ -54,10 +53,10 @@ class IDFScoreCalculator:
 
         try:
             joblib.dump(idf_z, 'idf_weights.pkl')
+            return idf_z
         except:
             pass
 
-        pass
 
     if __name__ == '__main__':
         main()
