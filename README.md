@@ -22,8 +22,30 @@ In order to clean and order the data, use [tf_idf sorting module](https://github
 This module splits the sentences into words and removes stopwords, punctuations and numbers from the words. These words are lemmatized and then sorted based on TF-IDF values.
 This module takes 3 arguments:
 1. data_path : path to the text data
-2. max_len  : maximum length of the words to be retained in each text sequence (in our case, abstract).
-3. tf_idf ordering (optional) : boolean value. set to `True' to sort the values based on TF-IDF valuses. 'False' retains the order instead of sorting.
-
+2. max_len (optional)  : maximum length of the words to be retained in each text sequence (in our case, abstract).
+3. tf_idf ordering (optional) : boolean value. set to 'True' to sort the values based on TF-IDF valuses. 'False' retains the order instead of sorting.
+```
+tfidf_ordering(data_path,tfidf_sorting=True,max_len=80)
+```
 The cleaned data will be saved in a csv file named 'final_tfidf_ordered_data.csv'.
+
+#### step2: Run the model.
+After cleaning the data, build and run the [model](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/keras_model) to classify the data.  Arguments for the model are:
+1. abstracts_path : provide the path to the cleaned data, i.e 'final_tfidf_ordered_data.csv'.
+2. WE_path : provide the path to the WE file.
+3. max_len (optional) : maximum length of the words to be retained in each text sequence (in our case, abstract). Default                             value-80. 
+4. nodes (optional) : No of rnn cells in each layer. Default-128
+5. layers (optional) : No of rnn layers required. Default : 2
+6. loss (optional)   : default='categorical_crossentropy',
+7. optimizer (optional) : default ='Adam'
+8. activation (optional) : default = 'tanh'
+9. dropout fraction (optional) : default = '0.2'
+10. batch_size (optional) : size of each batch for stochastic gradient descent. default=1000
+11. epochs (optional) : No of epochs for training
+12. gpus (optional) : No of gpus in case of multi gpu training. Default : None. If None, triggers cpu model.
+
+Run 
+```
+main(data_path, WE_path)
+```
 
