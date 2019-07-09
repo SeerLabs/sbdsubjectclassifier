@@ -33,7 +33,8 @@ class IDFScoreCalculator:
 
 
     def main(self):
-        data = pd.read_csv(self.data_path,index_col=['abstract', 'labels'])
+        data = pd.read_csv(self.data_path)
+        data.columns = ['abstract', 'labels']
         all_abstracts = data['abstract']
         file_count = len(all_abstracts)
         trivial_words = stopwords.words('english') + list(string.printable)

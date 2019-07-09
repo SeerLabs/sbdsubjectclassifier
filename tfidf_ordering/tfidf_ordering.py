@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import nltk as nk
 from nltk.corpus import wordnet
-from tfidf_ordering.idf_score_calculator import IDFScoreCalculator
+from idf_score_calculator import IDFScoreCalculator
 
 
 class tfidf_ordering:
@@ -66,7 +66,8 @@ class tfidf_ordering:
         return list(final_dict)
 
     def main(self):
-        data = pd.read_csv(self.data_path,index_col=['abstract', 'labels'])
+        data = pd.read_csv(self.data_path)
+        data.columns = ['abstract', 'labels']
         final_list = list(map(lambda x: list(self.tf_idf_ordering(x)), data['abstract']))
         ordered_list = []
         for abstract in final_list:
