@@ -31,7 +31,7 @@ tfidf_ordering(data_path,tfidf_sorting=True,max_len=80)
 The cleaned data will be saved in a csv file named 'final_tfidf_ordered_data.csv'.
 
 #### step2: Run the model.
-After cleaning the data, build and run the [model](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/keras_model) to classify the data.  Arguments for the model are:
+After cleaning the data, build and run the [model](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/rnn_model) to classify the data.  Arguments for the model are:
 1. abstracts_path : provide the path to the cleaned data, i.e 'final_tfidf_ordered_data.csv'.
 2. WE_path : provide the path to the WE file.
 3. max_len (optional) : maximum length of the words to be retained in each text sequence (in our case, abstract). Default                             value-80. 
@@ -50,4 +50,14 @@ Run the following to create a model object which takes abstracts_path and WE_pat
 from RnnModelMain import Model
 Model(abstracts_path, WE_path)
 ```
+[character-level CNN](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/char_cnn_model):
+Similarly, to implement character-level CNN model, implement the following:
+
+```
+from char_cnn import char_cnn
+char_cnn(abstracts_path, WE_path)
+```
+optional arguments are : batch_size,epochs and gpus
+
+
 
