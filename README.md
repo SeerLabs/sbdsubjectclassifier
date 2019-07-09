@@ -14,7 +14,7 @@ GloVe, SciBert and FastText. We also use Universal Sentence Encoder (USE) with M
 6. tensorflow_hub(for USE)
 
 ### Models
-&nbsp;   &nbsp;   &nbsp; [RNNs with WE](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/keras_model):
+[RNNs with WE](https://github.com/SeerLabs/sbdsubjectclassifier/tree/master/keras_model):
 This model takes text data path (.csv file with data and label) and  WE file path as inputs and classifies the data using RNN's. 
 
 #### step1: clean the data. 
@@ -25,6 +25,7 @@ This module takes 3 arguments:
 2. max_len (optional)  : maximum length of the words to be retained in each text sequence (in our case, abstract).
 3. tf_idf ordering (optional) : boolean value. set to 'True' to sort the values based on TF-IDF valuses. 'False' retains the order instead of sorting.
 ```
+from tfidf_ordering import tfidf_ordering
 tfidf_ordering(data_path,tfidf_sorting=True,max_len=80)
 ```
 The cleaned data will be saved in a csv file named 'final_tfidf_ordered_data.csv'.
@@ -44,8 +45,9 @@ After cleaning the data, build and run the [model](https://github.com/SeerLabs/s
 11. epochs (optional) : No of epochs for training
 12. gpus (optional) : No of gpus in case of multi gpu training. Default : None. If None, triggers cpu model.
 
-Run 
+Run the following to create a model object which takes abstracts_path and WE_path as input (add optional arguments if required) and prints accuracy and f1-score of the classification.
 ```
-main(data_path, WE_path)
+from RnnModelMain import Model
+Model(abstracts_path, WE_path)
 ```
 
