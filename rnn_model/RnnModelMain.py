@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import f1_score, recall_score, precision_score, accuracy_score
 from sklearn.model_selection import train_test_split
-from keras_model.RnnModel import RnnModels
+from rnn_model.RnnModelGenerator import RnnModels
 
-from keras_model.RnnModelsGpu import RnnModelsGpu
+from rnn_model.RnnModelGeneratorGpu import RnnModelsGpu
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 

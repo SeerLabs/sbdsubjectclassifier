@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac771cff-32db-40c0-bd3e-a8b949c839e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tfidf_ordering/tfidf_ordering.py" beforeDir="false" afterPath="$PROJECT_DIR$/tfidf_ordering/tfidf_ordering.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keras_model/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/rnn_model/RnnModelMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keras_model/RnnModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/rnn_model/RnnModelGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keras_model/RnnModelsGpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/rnn_model/RnnModelGeneratorGpu.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,13 +36,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="10" />
+          <entry key="dummy" value="37" />
           <entry key="py" value="2042" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="PLAIN_TEXT" value="37" />
           <entry key="Python" value="2042" />
         </counts>
       </usages-collector>
@@ -51,7 +51,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keras_model/RnnModel.py">
+        <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1755">
               <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keras_model/Main.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
+            <state relative-caret-position="1035">
               <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -90,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+            <state relative-caret-position="540">
+              <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <marker date="1562690160556" expanded="true" signature="304:376" ph="..." />
@@ -101,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tfidf_ordering/tfidf_ordering.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -125,7 +125,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keras_model/RnnModelsGpu.py">
+        <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelGeneratorGpu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
@@ -169,6 +169,8 @@
         <option value="$PROJECT_DIR$/keras_model/Main.py" />
         <option value="$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py" />
         <option value="$PROJECT_DIR$/tfidf_ordering/tfidf_ordering.py" />
+        <option value="$PROJECT_DIR$/rnn_model/Main.py" />
+        <option value="$PROJECT_DIR$/rnn_model/RnnModelMain.py" />
       </list>
     </option>
   </component>
@@ -215,7 +217,7 @@
             <path>
               <item name="sbdsubjectclassifier" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbdsubjectclassifier" type="462c0819:PsiDirectoryNode" />
-              <item name="keras_model" type="462c0819:PsiDirectoryNode" />
+              <item name="rnn_model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sbdsubjectclassifier" type="b2602c69:ProjectViewProjectNode" />
@@ -266,7 +268,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -299,22 +300,12 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tensorflow_model/RnnModelsTensorflow.py" />
-    <entry file="file://$PROJECT_DIR$/keras_model/RnnModel.py">
+    <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1755">
           <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keras_model/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -344,24 +335,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keras_model/RnnModelsGpu.py">
+    <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelGeneratorGpu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <marker date="1562690160556" expanded="true" signature="304:376" ph="..." />
-            <marker date="1562690160556" expanded="true" signature="402:407" ph="..." />
           </folding>
         </state>
       </provider>
@@ -374,6 +353,28 @@
             <element signature="e#0#37#0" expanded="true" />
             <marker date="1562690179842" expanded="true" signature="307:308" ph="..." />
             <marker date="1562690179842" expanded="true" signature="307:313" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tfidf_ordering/idf_score_calculator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <marker date="1562690160556" expanded="true" signature="304:376" ph="..." />
+            <marker date="1562690160556" expanded="true" signature="402:407" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnn_model/RnnModelMain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
