@@ -55,9 +55,19 @@ Similarly, to implement character-level CNN model, implement the following:
 
 ```
 from char_cnn import char_cnn
-char_cnn(abstracts_path, WE_path)
+char_cnn(abstracts_path)
 ```
 optional arguments are : batch_size,epochs and gpus
+
+
+[USE with MLP](https://github.com/SeerLabs/sbdsubjectclassifier/blob/master/use_with_mlp.py): 
+To implement character-level CNN model, implement the following:
+
+```
+from use_with_mlp import MlpModelWithUSE
+MlpModelWithUSE(abstracts_path)
+```
+optional arguments are : nodes, layers, loss,optimizer, activation, dropout, batch_size, epochs,gpus
 
 
 
